@@ -383,6 +383,7 @@ local runLoop = RunService.Heartbeat:Connect(function()
             else
                 char:PivotTo(currentRoom.Gate.CFrame + Vector3.new(0, 0, -2))
                 sword.Parent = char
+                
             end
 
             for _, enemy in currentRoom.Enemies:GetChildren() do
