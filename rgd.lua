@@ -388,7 +388,7 @@ local runLoop = RunService.Heartbeat:Connect(function()
                 humanoid.Died:Connect(function()
                     -- queue_on_teleport([[
                         _G.autoFarm = true
-                        
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/alizeja/RGD-Gui/refs/heads/main/rgd.lua"))()
                     -- ]])
                     GE:FireServer("Restart")
                 end)
