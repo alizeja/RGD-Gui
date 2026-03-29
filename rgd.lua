@@ -363,12 +363,12 @@ local runLoop = RunService.Heartbeat:Connect(function()
             Rayfield:SetVisibility(false)
             local humanoid = getHuman(char)
             plr.CameraMode = Enum.CameraMode.LockFirstPerson
-            Camera.CFrame *= CFrame.new(1,1,1, 1,1,1, 1,1,1, -0.008629421703517437, -0.9848077297210693, 0.1734343022108078)
             root.AssemblyLinearVelocity = Vector3.new(0,0,0)
             asbp:Set(true)
             dab:Set(true)
             ka:Set(true)
             clickAll()
+            collectCircuits()
 
             classFrame["ClassButton1"].AutoUse.Value = true
             classFrame["ClassButton2"].AutoUse.Value = true
