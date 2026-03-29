@@ -127,10 +127,8 @@ local function clickAll()
 
     local room
     for i, v in pairs(rooms) do
-        print(i,v)
         if v.Name == "Room" then
             room = v
-            print("currentroom is now", room)
         end
     end
     local enemies = room and room:FindFirstChild("Enemies")
