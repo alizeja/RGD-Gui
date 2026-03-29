@@ -29,6 +29,7 @@ local roomNumber = genValues.RoomNumber
 local GE = ReplicatedStorage.GuiEvent
 local classFrame = PlayerGui:WaitForChild("ClassGui"):WaitForChild("Frame")
 local yesorno
+local sword
 
 local as = false
 local nb = false
@@ -351,6 +352,10 @@ local runLoop = RunService.Heartbeat:Connect(function()
         end
 
         if root and currentRoom and currentRoom:FindFirstChild("Gate") then
+            if not sword then
+                sword = plr.Backpack:FindFirstChild("Copper Sword") or char:FindFirstChild("Copper Sword")
+                sword.Parent = plr.Backpack
+            end
             Rayfield:SetVisibility(false)
             local humanoid = getHuman(char)
             plr.CameraMode = Enum.CameraMode.LockFirstPerson
@@ -382,6 +387,13 @@ local runLoop = RunService.Heartbeat:Connect(function()
                 b.Attachment.ProximityPrompt:InputHoldBegin()
             else
                 char:PivotTo(currentRoom.Gate.CFrame + Vector3.new(0, 15, -2))
+            end
+
+            for _, enemy in currentRoom.Enemies:GetChildren() do
+                if enemy:IsA("Model") and enemy:FindFirstChild("Humanoid") then
+                    sword.Parent = char
+                    enemy.CFrame = root.CFrame * root.CFrame.LookVector * 1.5
+                end
             end
 
             if not humanoid:HasTag("onDiedEventAutoFarm") then
