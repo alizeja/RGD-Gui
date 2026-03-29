@@ -354,9 +354,12 @@ local runLoop = RunService.Heartbeat:Connect(function()
         if root and currentRoom and currentRoom:FindFirstChild("Gate") then
             if not sword then
                 sword = plr.Backpack:FindFirstChild("Copper Sword") or char:FindFirstChild("Copper Sword")
+                if sword then
+                    sword.Parent = plr.Backpack
+                end
+            else
                 sword.Parent = plr.Backpack
             end
-            sword.Parent = plr.Backpack
             Rayfield:SetVisibility(false)
             local humanoid = getHuman(char)
             plr.CameraMode = Enum.CameraMode.LockFirstPerson
