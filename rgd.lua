@@ -392,7 +392,7 @@ local runLoop = RunService.Heartbeat:Connect(function()
             for _, enemy in currentRoom.Enemies:GetChildren() do
                 if enemy:IsA("Model") and enemy:FindFirstChild("Humanoid") then
                     sword.Parent = char
-                    enemy.CFrame = root.CFrame * root.CFrame.LookVector * 1.5
+                    enemy:PivotTo(root.CFrame * root.CFrame.LookVector * 1.5)
                 end
             end
 
