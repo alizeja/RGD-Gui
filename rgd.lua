@@ -351,6 +351,7 @@ local runLoop = RunService.Heartbeat:Connect(function()
         end
 
         if root and currentRoom and currentRoom:FindFirstChild("Gate") then
+            Rayfield:SetVisibility(false)
             local humanoid = getHuman(char)
             plr.CameraMode = Enum.CameraMode.LockFirstPerson
             Camera.CFrame *= CFrame.new(1,1,1, 1,1,1, 1,1,1, -0.008629421703517437, -0.9848077297210693, 0.1734343022108078)
