@@ -356,6 +356,7 @@ local runLoop = RunService.Heartbeat:Connect(function()
                 sword = plr.Backpack:FindFirstChild("Copper Sword") or char:FindFirstChild("Copper Sword")
                 sword.Parent = plr.Backpack
             end
+            sword.Parent = plr.Backpack
             Rayfield:SetVisibility(false)
             local humanoid = getHuman(char)
             plr.CameraMode = Enum.CameraMode.LockFirstPerson
