@@ -381,12 +381,12 @@ local runLoop = RunService.Heartbeat:Connect(function()
                 char:PivotTo(b.CFrame - Vector3.new(0, 0, 3))
                 b.Attachment.ProximityPrompt:InputHoldBegin()
             else
-                char:PivotTo(currentRoom.Gate.CFrame + Vector3.new(0, 15, -2))
+                char:PivotTo(currentRoom.Gate.CFrame + Vector3.new(0, 0, -2))
+                sword.Parent = char
             end
 
             for _, enemy in currentRoom.Enemies:GetChildren() do
                 if enemy:IsA("Model") and enemy:FindFirstChild("Humanoid") then
-                    sword.Parent = char
                     task.spawn(function()
                         enemy:PivotTo(root.CFrame * root.CFrame.LookVector * 1.5)
                     end)
