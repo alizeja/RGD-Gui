@@ -133,10 +133,8 @@ local function clickAll()
             print("currentroom is now", room)
         end
     end
-    print(room)
     local enemies = room and room:FindFirstChild("Enemies")
     if not enemies then
-        print("no enemies folder?")
         canPress = true
         return
     end
@@ -144,15 +142,12 @@ local function clickAll()
     local targetPos = getMousePosition()
     local clicked = 0
 
-    for _, b in ipairs(enemies:GetChildren()) do
+    for _, b in enemies:GetChildren() do
         if b.Name:find("Button") then
             local cd = b:FindFirstChildOfClass("ClickDetector")
-            print(b.Name,"finding cd")
             if not cd then print("none") continue end
-            print(b.Name,"has cd")
 
             b.CFrame = CFrame.new(targetPos)
-            print(targetPos)
             cd.MaxActivationDistance = math.huge
             task.wait(.1)
 
@@ -164,8 +159,6 @@ local function clickAll()
             task.wait(.1)
         end
     end
-
-    print("clicked:", clicked, "buttons")
 
     canPress = true
 end
@@ -396,7 +389,9 @@ local runLoop = RunService.Heartbeat:Connect(function()
             for _, enemy in currentRoom.Enemies:GetChildren() do
                 if enemy:IsA("Model") and enemy:FindFirstChild("Humanoid") then
                     sword.Parent = char
-                    enemy:PivotTo(root.CFrame * root.CFrame.LookVector * 1.5)
+                    task.spawn(function()
+                        enemy:PivotTo(root.CFrame * root.CFrame.LookVector * 1.5)
+                    end)
                 end
             end
 
